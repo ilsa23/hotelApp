@@ -15,7 +15,7 @@ var fn = {
         var tel = $('#registro input:eq(2)').val();
         var img= $('#registro a:eq(0)').attr(rel);
         
-        if(nom != '' && mail != '' && tel != '' && img ! = '' && img != undefined)
+        if(nom != '' && mail != '' && tel != '' && img != '')
                 server.sendData(nom,mail,tel,img);
             else
             navigator.notification.alert('Todos los campos son requeridos', null, 'Error de Datos','Aceptar');
