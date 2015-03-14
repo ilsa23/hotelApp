@@ -1,5 +1,5 @@
 //device
-ver dispositivo = {
+var dispositivo = {
     getId: function(){
         return device.uuid;
     }
