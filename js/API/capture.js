@@ -6,7 +6,7 @@ var capture= {//Funcion en caso de que sea satisfactoria
         path = mf[i].fullPath;//Ruta completa del archivo de imagen    
     }
         $('#registro div[role=main] a').attr('rel',path);
-        $('#registro div[role=main] ul li:eq(4)').html('<img src="'+ path +'" style="width=100%;">');
+        $('#registro div[role=main] ul li:eq(4)').html('<img src="'+ path +'" style="width=50%;">');
     },
     imgError: function(err){//funcion en caso de que haya un error
     navigator.notification.alert('Error code: ' + err.code, null, 'Capture Error');
