@@ -17,8 +17,9 @@ var transfer = {
             options.fileKey = "foto";
             options.fileName = "ilse";
             options.mimeType = "image/jpeg";
+            
             var ft = new fileTransfer();
-            ft.upload(img,server.url, transfer.imgSuccess, transfer.imgError,options);
+            ft.upload(img, server.url, transfer.imgSuccess, transfer.imgError,options);
             
                         
         }
