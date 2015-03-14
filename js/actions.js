@@ -1,11 +1,12 @@
 var fn = {
-    ready: function(){
-        document.addEventListener('deviceready',fn.init,false);
+    ready: function () {
+        document.addEventListener('deviceready', fn.init, false);
     },
-    init: function(){
+    init: function () {
         var x = false;
         if(!x)
             window.location.href = "#registro";
+        $('#registro a:eq(0)').tap(capture.takePhoto);
         $('#registro a:eq(1)').tap(fn.registrar);
     },
     registrar: function(){
