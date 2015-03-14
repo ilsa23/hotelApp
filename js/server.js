@@ -6,9 +6,9 @@ var server = {
         $.ajax({
          method: "POST",
          url: server.url,
-         data: {nom:nom,mail:mail,tel:tel}
+         data: {nom: nom, mail: mail, tel: tel}
      }).done(function( msg ) {
-        if(msg==1)
+        if(msg == 1)
             transfer.imgUpload(img);
            });
     }
