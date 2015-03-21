@@ -20,39 +20,35 @@ var fn = {
         else
             navigator.notification.alert('Todos los campos son requeridos', null, 'Error de Datos','Aceptar');
     },
-    crearReserva: function()
-    {
+    crearReserva: function(){
         var reserva = {
             selecTH: function(){
-               if($(this).index() >0){
-               $('#nr1').attr('th',$(this).index());
-               $('#nr1 ul:eq(0) li a').css('background','#f6f6f6');
-               $(this).find('a').css('background','#00dd00');
-               }
+                if($(this).index() > 0){
+                    $('#nr1').attr('th',$(this).index());
+                    $('#nr1 ul:eq(0) li a').css('background','#f6f6f6');
+                    $(this).find('a').css('background','#00dd00');
+                }
             },
-                siguiente: function()
-            {   var th = $('#nr1').attr('th');
+            siguiente: function(){
+                var th = $('#nr1').attr('th');
                 if(th != undefined && th != '')
-                window.location.href= '#nr2';
+                    window.location.href = '#nr2';
             },
-                reservar: function()
-            {   var th = $('#nr1').attr('th');
+            reservar: function(){
+                var th = $('#nr1').attr('th');
                 var ha = $('#nr2 select:eq(0)').val();
                 var pr = $('#nr2 select:eq(1)').val();
                 var di = $('#nr2 select:eq(2)').val();
                 if(connection.isConnected())
-                alert(th + ' - ' + ha + ' - ' + pr + ' - ' + di);
-             else
-                 almacenamiento.reservar(th,ha,pr,di);
+                    alert(th + ' - ' + ha + ' - ' + pr + ' - ' + di);
+                else
+                    almacenamiento.reservar(th,ha,pr,di);
             }
-            
-        
         };
         $('#nr1 ul:eq(0) li').tap(reserva.selecTH);
         $('#nr1 ul:eq(1) li:eq(1)').tap(reserva.siguiente);
         $('#nr2 ul:eq(1) li:eq(1)').tap(reserva.reservar);
         $('#historial').tap(almacenamiento.leerReservas);
-        
     }
 };
 $(fn.ready);
