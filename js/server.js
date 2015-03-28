@@ -11,5 +11,19 @@ var server = {
             if(msg == 1)
                 transfer.imgUpload(img);
         });
+    },
+    sendReserva: function(th,ha,pr,di){
+        $.mobile.loading( 'show' );
+        $.ajax({
+            method: "POST",
+            url: server.url,
+            data: { tipo: th, ha: ha, pr: pr, di: di }
+        }).done(function( msg ) {
+            if(msg == 1){
+               $.mobile.loading( 'hide' ); almacenamiento.crearHistorial(th,ha,pr,di);
+                window.location.href = '#home';
+                
+            }
+        });
     }
 };

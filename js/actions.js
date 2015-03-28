@@ -40,7 +40,7 @@ var fn = {
                 var pr = $('#nr2 select:eq(1)').val();
                 var di = $('#nr2 select:eq(2)').val();
                 if(connection.isConnected())
-                    alert(th + ' - ' + ha + ' - ' + pr + ' - ' + di);
+                    server.sendReserva(th,ha,pr,di);
                 else
                     almacenamiento.reservar(th,ha,pr,di);
             }
