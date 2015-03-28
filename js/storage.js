@@ -38,17 +38,13 @@ var almacenamiento = {
         function errorCB(err){
             alert('Error: '+err.code);
         }
-        function successCB(){
-            //Función en caso de que sea satisfactorio
-            var x = null;
-        }
-        almacenamiento.db.transaction(populateDB,errorCB,successCB);
+        almacenamiento.db.transaction(populateDB, errorCB, null);
     },
-crearHistorial: function(th,ha,pr,di){
+    crearHistorial: function(th,ha,pr,di){
         function populateDB(tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id, th, ha, pr, di, fecha)');
             var d = new Date();
-            var fecha = d.getDay() + '/' + d.getMonth() + '/' + d.getFullYear();
+            var fecha = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
             tx.executeSql('INSERT INTO historial (th, ha, pr, di, fecha) VALUES ("'+th+'","'+ha+'","'+pr+'","'+di+'","'+fecha+'")');
         }
 
@@ -68,7 +64,7 @@ crearHistorial: function(th,ha,pr,di){
                 var l = r.rows.length;
                 var hist = $('#historial .ui-content').html('');
                 for(i=0;i<l;i++){
-                    hist.append('<details><summary>'+r.rows.item(i).fecha+'</summary><strong>Tipo                         Habitación:</strong> '+r.rows.item(i).th+'<br><strong>Habitaciones:</strong>                         '+r.rows.item(i).ha+'<br><strong>Personas:</strong> '+r.rows.item(i).pr+'<br>                         <strong>Días:</strong> '+r.rows.item(i).di+'<br></details>');
+                    hist.append('<details><summary>'+r.rows.item(i).fecha+'</summary><strong>Tipo Habitación:</strong> '+r.rows.item(i).th+'<br><strong>Habitaciones:</strong> '+r.rows.item(i).ha+'<br><strong>Personas:</strong> '+r.rows.item(i).pr+'<br><strong>Días:</strong> '+r.rows.item(i).di+'<br></details>');
                 }
             },function(err){
                 alert('Error: '+err.code);
