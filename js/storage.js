@@ -10,7 +10,7 @@ var almacenamiento = {
         else
             return false;
     },
-    db: window.openDatabase("hotelApp", "1.0", "HotalApp", 200000),
+    db: window.openDatabase("hotelApp", "1.0", "HotelApp", 200000),
     reservar: function(th,ha,pr,di){
         function populateDB(tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS reservas (id, th, ha, pr, di)');
@@ -30,7 +30,9 @@ var almacenamiento = {
     leerReservas: function(){
         function populateDB(tx){
             tx.executeSql("SELECT * FROM reservas",[],function(tx2,r){
-                alert(r.rows.length);
+                var l = r.rows.length;
+                for(i=0;i<l;i++)
+        server.sendReserva(r.rows.item(i).th,r.rows.item(i).ha,r.rows.item(i).pr,r.rows.item(i).di);
             },function(err){
                 alert('Error: '+err.code);
             });
