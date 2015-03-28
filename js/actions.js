@@ -48,7 +48,8 @@ var fn = {
         $('#nr1 ul:eq(0) li').tap(reserva.selecTH);
         $('#nr1 ul:eq(1) li:eq(1)').tap(reserva.siguiente);
         $('#nr2 ul:eq(1) li:eq(1)').tap(reserva.reservar);
-        $('#historial').tap(almacenamiento.leerReservas);
+        $('a[href=#historial]').tap(almacenamiento.leerHistorial);
+        
     }
 };
 $(fn.ready);
